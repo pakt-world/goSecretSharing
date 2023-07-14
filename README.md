@@ -1,7 +1,7 @@
 # go-secret-sharing
 go-secret-sharing is a Golang package that implements Shamir's Secret Sharing (SSS) algorithm, specifically designed to work with mnemonics and string secrets. It allows you to split a secret into n number of shares such that a specified number (t) of those shares are required to recover the original secret.
 
-The design of this tool was inspired by Ava Labs' [https://github.com/ava-labs/mnemonic-shamir-secret-sharing-cli](mnemonic-shamir-secret-sharing-cli).
+The design of this tool was inspired by Ava Labs' [mnemonic-shamir-secret-sharing-cli](https://github.com/ava-labs/mnemonic-shamir-secret-sharing-cli).
 
 # Features
 - Implements Shamir's Secret Sharing algorithm for string secrets and mnemonics.
