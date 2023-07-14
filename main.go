@@ -8,6 +8,10 @@ import (
 
 func main() {
 	fmt.Println("PAKT-Secret-Sharing....")
+	if len(os.Args) < 2 {
+		fmt.Println("Invalid Argument Passed")
+		os.Exit(1)
+	}
 	method := os.Args[1]
 	cmd.Execute(method)
 }
