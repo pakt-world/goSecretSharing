@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	fmt.Println("PAKT-Secret-Sharing....")
+	fmt.Println("GO-Secret-Sharing....")
 	if len(os.Args) < 2 {
 		fmt.Println("Invalid Argument Passed")
 		os.Exit(1)
