@@ -1,1 +1,1 @@
-### Go secret Sharing
+# Go secret Sharing
