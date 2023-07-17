@@ -4,7 +4,7 @@ import (
 	"encoding/hex"
 	"errors"
 
-	secretsharing "github.com/pakt/goSecretSharing/sharing"
+	secretsharing "github.com/pakt/goSecretSharing/shamir"
 )
 
 var KError = "Cannot do this, as requiredShares greater then noOfShares"
