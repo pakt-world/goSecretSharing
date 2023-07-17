@@ -10,12 +10,12 @@ The design of this tool was inspired by Ava Labs' [mnemonic-shamir-secret-sharin
 - Optimized for performance and scalability.
 
 ## Installation
-```
+```go
   go get github.com/pakt/goSecretSharing
 ```
 
 ## Usage
-```
+```go
   import goSecretSharing "github.com/pakt/goSecretSharing"
 
   func main(){
