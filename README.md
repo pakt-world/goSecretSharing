@@ -30,12 +30,13 @@ The design of this tool was inspired by Ava Labs' [mnemonic-shamir-secret-sharin
     secretText := "Hello World"
     noOfShares := 5
     noRequiredShares := 2
+    // split secret
     splitedStrings, sErr := goSecretSharing.SplitSecret(secretText, noOfShares, noRequiredShares)
     if sErr != nil {
       fmt.Println("Spliting Error===", sErr)
     }
+    recoveryString := []string{splitedStrings[1], splitedStrings[2]}
     // recover splitedStrings
-    recString := []string{splitedStrings[1], splitedStrings[2]}
     recoveredSecret, rErr := goSecretSharing.RecoverSecret(recString)
     if rErr != nil {
       fmt.Println("Recovery Error===", rErr)
