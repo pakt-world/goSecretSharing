@@ -3,8 +3,9 @@ package cmd
 import (
 	"fmt"
 	"os"
-	methods "pakt-secret-sharing/methods"
-	utils "pakt-secret-sharing/utils"
+
+	methods "github.com/pakt/go-secret-sharing/methods"
+	utils "github.com/pakt/go-secret-sharing/utils"
 )
 
 func Execute(method string) {

@@ -3,7 +3,8 @@ package main
 import (
 	"fmt"
 	"os"
-	cmd "pakt-secret-sharing/cmd"
+
+	cmd "github.com/pakt/go-secret-sharing/cmd"
 )
 
 func main() {
