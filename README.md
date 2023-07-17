@@ -32,15 +32,15 @@ The design of this tool was inspired by Ava Labs' [mnemonic-shamir-secret-sharin
     noRequiredShares := 2
     splitedStrings, sErr := goSecretSharing.SplitSecret(secretText, noOfShares, noRequiredShares)
     if sErr != nil {
-      fmt.Println("Splitung Error===", sErr)
+      fmt.Println("Spliting Error===", sErr)
     }
     // recover splitedStrings
     recString := []string{splitedStrings[1], splitedStrings[2]}
     recoveredSecret, rErr := goSecretSharing.RecoverSecret(recString)
     if rErr != nil {
-      fmt.Println("Recovered Error===", rErr)
+      fmt.Println("Recovery Error===", rErr)
     }
-    fmt.Println("recovered==", recoveredSecret)
+    fmt.Println("Recovered Secret==", recoveredSecret)
   }
 ```
 
