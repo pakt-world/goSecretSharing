@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"os"
 
-	methods "github.com/pakt/go-secret-sharing/methods"
-	utils "github.com/pakt/go-secret-sharing/utils"
+	methods "github.com/pakt/goSecretSharing"
+	utils "github.com/pakt/goSecretSharing/utils"
 )
 
 func Execute(method string) {

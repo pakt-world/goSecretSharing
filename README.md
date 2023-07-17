@@ -12,7 +12,26 @@ The design of this tool was inspired by Ava Labs' [mnemonic-shamir-secret-sharin
 ## Installation
 
 ## Usage
+```
+  import goSecretSharing "github.com/pakt/goSecretSharing"
 
+  func main(){
+    secretText := "Hello World"
+    noOfShares := 5
+    noRequiredShares := 2
+    splitedStrings, sErr := goSecretSharing.SplitSecret(secretText, noOfShares, noRequiredShares)
+    if sErr != nil {
+      fmt.Println("Errorpopp===", sErr)
+    }
+    // recover splitedStrings
+    recString := []string{splitedStrings[1], splitedStrings[2]}
+    recoveredSecret, rErr := goSecretSharing.RecoverSecret(recString)
+    if rErr != nil {
+      fmt.Println("Errorpopp===", rErr)
+    }
+    fmt.Println("recovered==", recoveredSecret)
+  }
+```
 ## Testing
 
 ## Contributing

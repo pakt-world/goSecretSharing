@@ -1,3 +1,3 @@
-module github.com/pakt/go-secret-sharing
+module github.com/pakt/goSecretSharing
 
 go 1.18

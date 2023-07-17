@@ -1,18 +1,16 @@
-package main
+package goSecretSharing
 
 import (
 	"fmt"
 	"os"
-
-	cmd "github.com/pakt/go-secret-sharing/cmd"
 )
 
 func main() {
-	fmt.Println("GO-Secret-Sharing....")
+	fmt.Println("CMD GO-Secret-Sharing....")
 	if len(os.Args) < 2 {
 		fmt.Println("Invalid Argument Passed")
 		os.Exit(1)
 	}
 	method := os.Args[1]
-	cmd.Execute(method)
+	Execute(method)
 }
