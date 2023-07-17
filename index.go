@@ -1,36 +1,34 @@
-package methods
+package goSecretSharing
 
 import (
 	"encoding/hex"
-	"fmt"
-	"os"
+	"errors"
 
-	secretsharing "github.com/pakt/go-secret-sharing/secretSharing"
+	secretsharing "github.com/pakt/goSecretSharing/sharing"
 )
 
-func SplitSecret(plainText string, noOfShares, minNum int) map[byte]string {
+var KError = "Cannot do this, as requiredShares greater then noOfShares"
+
+func SplitSecret(plainText string, noOfShares, requiredShares int) (map[byte]string, error) {
+	if requiredShares > noOfShares {
+		return nil, errors.New(KError)
+	}
 	var shareData = make(map[byte]string, noOfShares)
-	fmt.Printf("Splitting Secret into %d Shares...\n", noOfShares)
 	message := []byte(plainText)
 	n := byte(noOfShares)
-	k := byte(minNum)
-	if minNum > noOfShares {
-		fmt.Printf("Cannot do this, as k greater than n")
-		os.Exit(0)
-	}
+	k := byte(requiredShares)
 	shares, _ := secretsharing.Split(n, k, []byte(message))
 	for x, y := range shares {
 		shareData[x] = hex.EncodeToString(y)
 	}
-	return shareData
+	return shareData, nil
 }
 
-func RecoverSecret(shares []string) string {
+func RecoverSecret(shares []string) (string, error) {
 	// get length of shares
 	lenShares := len(shares)
 	subset := make(map[byte][]byte, lenShares)
 	for x, y := range shares {
-		fmt.Printf("Share:\t%d\t%s\n", x, y)
 		xh := uint8(x + 1)
 		dY, _ := hex.DecodeString(y)
 		subset[xh] = dY
@@ -39,6 +37,5 @@ func RecoverSecret(shares []string) string {
 		}
 	}
 	reconstructed := string(secretsharing.Combine(subset))
-	fmt.Printf("\nReconstructed: %s\n", reconstructed)
-	return reconstructed
+	return reconstructed, nil
 }
