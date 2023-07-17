@@ -4,7 +4,8 @@ import (
 	"encoding/hex"
 	"fmt"
 	"os"
-	secretsharing "pakt-secret-sharing/secretSharing"
+
+	secretsharing "github.com/pakt/go-secret-sharing/secretSharing"
 )
 
 func SplitSecret(plainText string, noOfShares, minNum int) map[byte]string {
