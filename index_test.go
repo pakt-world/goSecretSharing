@@ -19,5 +19,5 @@ func TestSharingAndRecover(t *testing.T) {
 	if eErr != nil {
 		t.Errorf("splitting Secret Failed... %v", tErr)
 	}
-	fmt.Println("test successfull..", recoveredSecret)
+	fmt.Println("Tests successfull..", recoveredSecret)
 }
