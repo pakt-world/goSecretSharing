@@ -14,7 +14,7 @@ The design of this tool was inspired by Ava Labs' [mnemonic-shamir-secret-sharin
 ## Installation
 
 ```go
-  go get github.com/pakt/goSecretSharing
+  go get github.com/pakt-world/goSecretSharing
 ```
 
 ## Usage
