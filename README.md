@@ -14,7 +14,7 @@ The design of this tool was inspired by Ava Labs' [mnemonic-shamir-secret-sharin
 ## Installation
 
 ```go
-  go get github.com/pakt/goSecretSharing
+  go get github.com/pakt-world/goSecretSharing
 ```
 
 ## Usage
@@ -23,7 +23,7 @@ The design of this tool was inspired by Ava Labs' [mnemonic-shamir-secret-sharin
   import (
     "fmt"
 
-    goSecretSharing "github.com/pakt/goSecretSharing"
+    goSecretSharing "github.com/pakt-world/goSecretSharing"
   )
 
   func main(){
