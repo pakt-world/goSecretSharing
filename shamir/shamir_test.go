@@ -1,32 +1,22 @@
 package secretsharing
 
-import (
-	"fmt"
-)
+import "testing"
 
-func TestSharing() {
-	secret := "hello world!" // our secret
-	n := byte(5)             // create 5 shares
-	k := byte(2)             // require 2 of them to combine
+func TestSharing(t *testing.T) {
+	secret := "hello world!"
+	n := byte(5) // create 5 shares
+	k := byte(2) // require 2 of them to combine
 
-	shares, err := Split(n, k, []byte(secret)) // split into 30 shares
+	shares, err := Split(n, k, []byte(secret))
 	if err != nil {
-		fmt.Println(err)
-		return
+		t.Fatal(err)
 	}
 
-	// select a random subset of the total shares
-	subset := make(map[byte][]byte, k)
-	for x, y := range shares { // just iterate since maps are randomized
-		subset[x] = y
-		if len(subset) == int(k) {
-			break
+	// any k shares, keyed by their own index, recover the secret
+	for _, ids := range [][]byte{{1, 2}, {4, 2}, {5, 3}} {
+		subset := map[byte][]byte{ids[0]: shares[ids[0]], ids[1]: shares[ids[1]]}
+		if got := string(Combine(subset)); got != secret {
+			t.Fatalf("shares %v: got %q", ids, got)
 		}
 	}
-
-	// combine two shares and recover the secret
-	recovered := string(Combine(subset))
-	fmt.Println(recovered)
-
-	// Output: hello world!
 }
